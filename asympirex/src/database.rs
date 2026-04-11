@@ -42,4 +42,17 @@ impl Database {
         let offset = x % self.records_per_partition;
         Some(&self.data[k][offset])
     }
+
+    pub fn set_record(&mut self, x: usize, record: Vec<u8>) {
+        assert!(x < self.total_records, "record index out of range");
+        assert_eq!(
+            record.len(),
+            self.record_size,
+            "record length must match the configured record size"
+        );
+
+        let k = x / self.records_per_partition;
+        let offset = x % self.records_per_partition;
+        self.data[k][offset] = record;
+    }
 }
