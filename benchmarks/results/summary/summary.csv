@@ -1,0 +1,55 @@
+scheme,case_id,success,trust_model,topology,logical_db_size,record_size_bytes,query_count,repetitions,bandwidth_mbps,rtt_ms,offline_ms,query_only_total_ms,query_only_avg_ms,online_total_ms,online_avg_ms,amortized_ms,maintenance_total_ms,refresh_count,client_outbound_bytes,client_inbound_bytes,maintenance_outbound_bytes,maintenance_inbound_bytes,client_storage_bytes,client_compute_ms,server_compute_ms,error,notes
+AsymPirex,N12-B256,True,two-server offline-online,in-process analytical network,4096,256,100,1,100.0,60.0,5.063959,6006.253291999999,60.062532919999995,6006.253291999999,60.062532919999995,60.74124888999999,0.18395799999999987,1,5640,509984,28,32768,841392,1.709292,,,Query-only online latency is reported separately from maintenance-aware amortized latency. | Network cost is analytically derived from compact message sizes.
+Pirex,N12-B256,True,two-server offline-online,in-process Rust reconstruction with analytical network,4096,256,100,1,100.0,60.0,39.664417,6027.56091,60.275609100000004,6027.56091,60.275609100000004,60.67225327,,,40240,299108,,,208896,32.944008999999994,0.5590814999999999,,Pirex is a local Rust reconstruction of the base artifact's prep/query flow. | Network cost is analytically derived from the reconstructed message sizes under the shared profile.
+AsymPirex,N14-B256,True,two-server offline-online,in-process analytical network,16384,256,100,1,100.0,60.0,29.251583,6009.572042,60.09572042,6009.572042,60.09572042,60.3882608,0.002454999999999999,0,12812,1034272,0,0,2914000,4.452042,,,Query-only online latency is reported separately from maintenance-aware amortized latency. | Network cost is analytically derived from compact message sizes.
+Pirex,N14-B256,True,two-server offline-online,in-process Rust reconstruction with analytical network,16384,256,100,1,100.0,60.0,177.294208,6042.7477819999995,60.42747781999999,6042.7477819999995,60.42747781999999,62.2004199,,,82000,561252,,,487424,58.47087999999999,0.9427340000000003,,Pirex is a local Rust reconstruction of the base artifact's prep/query flow. | Network cost is analytically derived from the reconstructed message sizes under the shared profile.
+AsymPirex,N16-B256,True,two-server offline-online,in-process analytical network,65536,256,100,1,100.0,60.0,293.504709,6017.2024169999995,60.17202416999999,6017.2024169999995,60.17202416999999,63.10709915999999,0.0027899999999999978,0,28812,2279456,0,0,11125520,10.802417,,,Query-only online latency is reported separately from maintenance-aware amortized latency. | Network cost is analytically derived from compact message sizes.
+Pirex,N16-B256,True,two-server offline-online,in-process Rust reconstruction with analytical network,65536,256,100,1,100.0,60.0,1028.823125,6084.190203,60.84190203,6084.190203,60.84190203,71.13013328,,,169800,1151076,,,1114112,126.29739799999999,4.259817,,Pirex is a local Rust reconstruction of the base artifact's prep/query flow. | Network cost is analytically derived from the reconstructed message sizes under the shared profile.
+AsymPirex,N12-B64,True,two-server offline-online,in-process analytical network,4096,64,100,1,100.0,60.0,5.155041,6005.727167,60.05727167,6005.727167,60.05727167,60.727392689999995,1.1994610000000012,1,5640,127520,28,8192,535728,4.255167,,,Query-only online latency is reported separately from maintenance-aware amortized latency. | Network cost is analytically derived from compact message sizes.
+Pirex,N12-B64,True,two-server offline-online,in-process Rust reconstruction with analytical network,4096,64,100,1,100.0,60.0,36.194333,6019.840577,60.19840577,6019.840577,60.19840577,60.5603491,,,40240,74852,,,61440,30.589551000000014,0.16772799999999985,,Pirex is a local Rust reconstruction of the base artifact's prep/query flow. | Network cost is analytically derived from the reconstructed message sizes under the shared profile.
+Piano,N12-B64,False,single-server,client-server over TCP relay,4096,64,100,1,100.0,60.0,,,,,,,,,,,,,,,,"2026/04/11 02:03:06 Server address 127.0.0.1:50051, thread number 1 ignoreOffline false
+2026/04/11 02:03:06 4096 1
+2026/04/11 02:03:06 DBSize 4096, DBSeed 1, ChunkSize 128, SetSize 32
+2026/04/11 02:03:07 totalQueryNum 532
+2026/04/11 02:03:07 k = 35
+2026/04/11 02:03:07 Start fetching the whole DB
+2026/04/11 02:03:07 Every Local Set Size 88 bytes
+2026/04/11 02:03:07 Every Local Backup Set Size 72 bytes
+2026/04/11 02:03:07 Local Set Num 4480, Local Backup Set Num 1536
+2026/04/11 02:03:07 Local Set Size 88 bytes -----------------------
+2026/04/11 02:03:07 Local Storage Size 0.5869140625 MB
+2026/04/11 02:03:07 Per query communication cost 0.3125 kb
+2026/04/11 02:03:07 received chunk 0
+panic: runtime error: slice bounds out of range [:944] with capacity 128
+
+goroutine 24 [running]:
+main.runPIRWithOneServer.func1(0x0?, 0x1180, 0x0, 0x600)
+	/Users/keyi/Library/CloudStorage/Dropbox/Like Wang/Like-SPIDER-GLOBECOM/AsymPirex-PIR/benchmarks/external/Piano-PIR-new/client_new/client_new.go:270 +0x2ff
+created by main.runPIRWithOneServer in goroutine 1
+	/Users/keyi/Library/CloudStorage/Dropbox/Like Wang/Like-SPIDER-GLOBECOM/AsymPirex-PIR/benchmarks/external/Piano-PIR-new/client_new/client_new.go:263 +0x17d7
+exit status 2
+",
+AsymPirex,N14-B64,True,two-server offline-online,in-process analytical network,16384,64,100,1,100.0,60.0,33.309375,6006.723375,60.06723374999999,6006.723375,60.06723374999999,60.40035542999999,0.002792999999999998,0,12812,258592,0,0,2215120,4.675375,,,Query-only online latency is reported separately from maintenance-aware amortized latency. | Network cost is analytically derived from compact message sizes.
+Pirex,N14-B64,True,two-server offline-online,in-process Rust reconstruction with analytical network,16384,64,100,1,100.0,60.0,309.56283299999996,6042.349448000001,60.42349448000001,6042.349448000001,60.42349448000001,63.519122810000006,,,82000,140388,,,143360,70.30732900000002,0.7745814999999999,,Pirex is a local Rust reconstruction of the base artifact's prep/query flow. | Network cost is analytically derived from the reconstructed message sizes under the shared profile.
+Piano,N14-B64,False,single-server,client-server over TCP relay,16384,64,100,1,100.0,60.0,,,,,,,,,,,,,,,,"2026/04/11 02:03:11 Server address 127.0.0.1:50051, thread number 1 ignoreOffline false
+2026/04/11 02:03:11 16384 1
+2026/04/11 02:03:11 DBSize 16384, DBSeed 1, ChunkSize 256, SetSize 64
+2026/04/11 02:03:11 totalQueryNum 1242
+2026/04/11 02:03:11 k = 36
+2026/04/11 02:03:11 Start fetching the whole DB
+2026/04/11 02:03:11 Every Local Set Size 88 bytes
+2026/04/11 02:03:11 Every Local Backup Set Size 72 bytes
+2026/04/11 02:03:11 Local Set Num 9216, Local Backup Set Num 3648
+2026/04/11 02:03:11 Local Set Size 88 bytes -----------------------
+2026/04/11 02:03:11 Local Storage Size 1.2744140625 MB
+2026/04/11 02:03:11 Per query communication cost 0.5625 kb
+2026/04/11 02:03:11 received chunk 0
+panic: runtime error: slice bounds out of range [:1968] with capacity 128
+
+goroutine 50 [running]:
+main.runPIRWithOneServer.func1(0x0?, 0x2400, 0x0, 0xe40)
+	/Users/keyi/Library/CloudStorage/Dropbox/Like Wang/Like-SPIDER-GLOBECOM/AsymPirex-PIR/benchmarks/external/Piano-PIR-new/client_new/client_new.go:270 +0x2ff
+created by main.runPIRWithOneServer in goroutine 1
+	/Users/keyi/Library/CloudStorage/Dropbox/Like Wang/Like-SPIDER-GLOBECOM/AsymPirex-PIR/benchmarks/external/Piano-PIR-new/client_new/client_new.go:263 +0x17d7
+exit status 2
+",

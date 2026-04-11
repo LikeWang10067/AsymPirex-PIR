@@ -1,0 +1,56 @@
+{
+  "name": "paper-eval",
+  "repetitions": 1,
+  "network": {
+    "bandwidth_mbps": 100.0,
+    "rtt_ms": 60.0,
+    "chunk_bytes": 65536
+  },
+  "matrix": [
+    {
+      "case_id": "N12-B256",
+      "logical_db_size": 4096,
+      "record_size_bytes": 256,
+      "query_count": 100,
+      "active_hint_count": 768,
+      "refresh_batch_size": 64,
+      "schemes": ["asympirex", "pirex"]
+    },
+    {
+      "case_id": "N14-B256",
+      "logical_db_size": 16384,
+      "record_size_bytes": 256,
+      "query_count": 100,
+      "active_hint_count": 1792,
+      "refresh_batch_size": 128,
+      "schemes": ["asympirex", "pirex"]
+    },
+    {
+      "case_id": "N16-B256",
+      "logical_db_size": 65536,
+      "record_size_bytes": 256,
+      "query_count": 100,
+      "active_hint_count": 4096,
+      "refresh_batch_size": 256,
+      "schemes": ["asympirex", "pirex"]
+    },
+    {
+      "case_id": "N12-B64",
+      "logical_db_size": 4096,
+      "record_size_bytes": 64,
+      "query_count": 100,
+      "active_hint_count": 768,
+      "refresh_batch_size": 64,
+      "schemes": ["asympirex", "pirex", "piano"]
+    },
+    {
+      "case_id": "N14-B64",
+      "logical_db_size": 16384,
+      "record_size_bytes": 64,
+      "query_count": 100,
+      "active_hint_count": 1792,
+      "refresh_batch_size": 128,
+      "schemes": ["asympirex", "pirex", "piano"]
+    }
+  ]
+}
