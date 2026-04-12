@@ -1,0 +1,24 @@
+{
+  "name": "db256-threeway",
+  "repetitions": 1,
+  "network": {
+    "bandwidth_mbps": 40.0,
+    "rtt_ms": 60.0,
+    "chunk_bytes": 4096
+  },
+  "matrix": [
+    {
+      "case_id": "db256-b64",
+      "logical_db_size": 256,
+      "record_size_bytes": 64,
+      "query_count": 50,
+      "active_hint_count": 256,
+      "refresh_batch_size": 32,
+      "schemes": [
+        "asympirex",
+        "pirex",
+        "piano"
+      ]
+    }
+  ]
+}
